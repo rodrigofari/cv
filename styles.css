@@ -228,8 +228,34 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
   font-size: clamp(28px, 3.5vw, 38px);
   letter-spacing: -.02em; margin: 0; font-weight: 700;
 }
-.prose { font-size: 16px; max-width: 70ch; color: var(--text); }
+.prose { font-size: 16px; max-width: 70ch; color: var(--text); text-align: justify; hyphens: auto; }
 .prose strong { color: var(--text); }
+.lede { text-align: justify; hyphens: auto; }
+.t-body li { text-align: justify; hyphens: auto; }
+
+/* Content links — make them clearly clickable */
+.prose a,
+.lede a,
+.t-org a,
+.t-body li a,
+.card-value a,
+.meta a {
+  color: var(--primary-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--primary-2) 45%, transparent);
+  transition: color .15s, text-decoration-color .15s;
+}
+.prose a:hover,
+.lede a:hover,
+.t-org a:hover,
+.t-body li a:hover,
+.card-value a:hover,
+.meta a:hover {
+  color: var(--primary);
+  text-decoration-color: var(--primary);
+}
 
 /* TIMELINE */
 .timeline { list-style: none; padding: 0; margin: 0; position: relative; }
