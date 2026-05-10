@@ -15,8 +15,10 @@
   --maxw: 1100px;
 }
 
+/* Light palette: applied when prefers-color-scheme is light AND no explicit theme is set,
+   OR when user explicitly chose light via the toggle. */
 @media (prefers-color-scheme: light) {
-  :root {
+  html[data-theme="auto"] {
     --bg: #fafafa;
     --bg-2: #ffffff;
     --surface: #ffffff;
@@ -29,6 +31,19 @@
     --accent: #11a37f;
     --shadow: 0 10px 30px rgba(20,20,40,.08);
   }
+}
+html[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-2: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f5f7;
+  --border: #e6e8ec;
+  --text: #15181d;
+  --muted: #5b6573;
+  --primary: #5b3df5;
+  --primary-2: #2d6cff;
+  --accent: #11a37f;
+  --shadow: 0 10px 30px rgba(20,20,40,.08);
 }
 
 * { box-sizing: border-box; }
@@ -95,6 +110,42 @@ a:hover { color: var(--primary-2); }
   border-color: var(--border);
 }
 .btn-ghost:hover { border-color: var(--text); }
+
+/* THEME TOGGLE */
+.theme-toggle {
+  display: inline-grid; place-items: center;
+  width: 38px; height: 38px;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: border-color .15s, background .15s, color .15s;
+}
+.theme-toggle:hover { border-color: var(--text); color: var(--primary-2); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+html[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: light) {
+  html[data-theme="auto"] .theme-toggle .icon-sun { display: block; }
+  html[data-theme="auto"] .theme-toggle .icon-moon { display: none; }
+}
+
+/* AVATAR */
+.avatar-wrap { position: relative; margin-bottom: 22px; }
+.avatar {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  object-fit: cover; object-position: center 25%;
+  border: 3px solid var(--surface);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--primary) 60%, transparent),
+    0 10px 25px rgba(0,0,0,.18);
+  display: block;
+}
+.avatar-fallback {
+  display: none; place-items: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff; font-weight: 700; letter-spacing: .04em; font-size: 30px;
+}
 
 /* HERO */
 .hero {
