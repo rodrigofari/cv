@@ -129,33 +129,34 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
   html[data-theme="auto"] .theme-toggle .icon-moon { display: none; }
 }
 
-/* AVATAR — sticker / polaroid style */
+/* AVATAR — cutout sticker style */
 .avatar-wrap {
   position: relative;
   margin: 0 0 26px;
   display: inline-block;
-  transform: rotate(-4deg);
+  transform: rotate(-3deg);
   transition: transform .25s ease;
 }
 .avatar-wrap:hover { transform: rotate(0deg) scale(1.04); }
 .avatar {
-  width: 140px; height: 170px;
-  object-fit: cover; object-position: center 18%;
-  background: #fff;
-  padding: 8px 8px 28px;
-  border-radius: 4px;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,.6) inset,
-    0 12px 28px rgba(0,0,0,.28),
-    0 4px 10px rgba(0,0,0,.18);
+  width: 180px; height: auto;
   display: block;
+  background: transparent;
+  /* white sticker outline + soft shadow, follows transparent edges */
+  filter:
+    drop-shadow(2px 0 0 #fff)
+    drop-shadow(-2px 0 0 #fff)
+    drop-shadow(0 2px 0 #fff)
+    drop-shadow(0 -2px 0 #fff)
+    drop-shadow(0 14px 22px rgba(0,0,0,.35));
 }
 .avatar-fallback {
   display: none; place-items: center;
   width: 140px; height: 170px;
   background: linear-gradient(135deg, var(--primary), var(--primary-2));
   color: #fff; font-weight: 700; letter-spacing: .04em; font-size: 42px;
-  padding: 0;
+  border-radius: 12px;
+  filter: drop-shadow(0 14px 22px rgba(0,0,0,.35));
 }
 
 /* HERO */
