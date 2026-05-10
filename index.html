@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>João Farinha — AI Product Builder · Digital Operations</title>
-<meta name="description" content="João Farinha — AI Product Builder at Oktogon Labs and Product Manager at Surf Clube da Madeira. MSc Business Sciences (ISEG). Lisbon, Portugal." />
+<meta name="description" content="João Farinha — AI Product Builder at Oktogon Labs and Product Manager at Surf Clube da Madeira. MSc Business Sciences (ISEG). From Madeira Island, based in Lisbon." />
 <meta property="og:title" content="João Farinha — AI Product Builder" />
 <meta property="og:description" content="Building AI-powered systems that make teams faster and smarter." />
 <meta property="og:type" content="profile" />
@@ -14,19 +14,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 <script>
-  // Apply saved theme as early as possible to avoid flash.
   (function () {
     try {
-      var saved = localStorage.getItem('theme');
-      if (saved === 'light' || saved === 'dark') {
-        document.documentElement.setAttribute('data-theme', saved);
-      }
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      var l = localStorage.getItem('lang');
+      if (l === 'pt' || l === 'en') document.documentElement.setAttribute('lang', l);
     } catch (e) {}
   })();
 </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="nav">
     <div class="nav-inner">
@@ -35,19 +34,23 @@
         <span class="brand-name">João Farinha</span>
       </a>
       <nav aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#education" data-i18n="nav.education">Education</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light/dark mode" title="Toggle theme">
+      <button id="lang-toggle" class="icon-btn lang-toggle" type="button" aria-label="Switch language" title="Switch language">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span id="lang-label">EN</span>
+      </button>
+      <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Toggle light/dark mode" title="Toggle theme">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
       <a class="btn btn-primary" href="assets/joao-farinha-cv.pdf" download="Joao-Farinha-CV.pdf" aria-label="Download CV as PDF">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-        <span>Download CV</span>
+        <span data-i18n="nav.download">Download CV</span>
       </a>
     </div>
   </header>
@@ -60,157 +63,126 @@
             <img class="avatar" src="assets/profile.png" alt="João Farinha" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
             <div class="avatar avatar-fallback" aria-hidden="true">JF</div>
           </div>
-          <p class="eyebrow"><span class="dot"></span> Available for selected opportunities</p>
-          <h1>Hi, I'm <span class="hl">João Farinha</span>.</h1>
-          <p class="tagline">AI Product Builder · Digital Operations · Sports Management</p>
-          <p class="lede">Building AI-powered systems that make teams faster and smarter. Currently shipping internal tools and GTM automations at <strong>Oktogon Labs</strong> while leading product strategy at <strong>Surf Clube da Madeira</strong>.</p>
+          <p class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">Available for selected opportunities</span></p>
+          <h1><span data-i18n="hero.greeting">Hi, I'm</span> <span class="hl">João Farinha</span>.</h1>
+          <p class="tagline" data-i18n="hero.tagline">AI Product Builder · Digital Operations · Sports Management</p>
+          <p class="lede" data-i18n="hero.lede" data-i18n-html>Building AI-powered systems that make teams faster and smarter. Currently shipping internal tools and GTM automations at <strong>Oktogon Labs</strong> while leading product strategy at <strong><a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a></strong>.</p>
           <div class="cta-row">
             <a class="btn btn-primary lg" href="assets/joao-farinha-cv.pdf" download="Joao-Farinha-CV.pdf">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-              Download CV (PDF)
+              <span data-i18n="hero.downloadCv">Download CV (PDF)</span>
             </a>
-            <a class="btn btn-ghost lg" href="mailto:rodrifarinha@gmail.com">Get in touch</a>
+            <a class="btn btn-ghost lg" href="mailto:rodrifarinha@gmail.com" data-i18n="hero.contact">Get in touch</a>
           </div>
           <ul class="meta">
-            <li>📍 Lisboa, Portugal</li>
+            <li data-i18n="hero.location">📍 From Madeira Island, based in Lisbon, Portugal</li>
             <li>✉️ <a href="mailto:rodrifarinha@gmail.com">rodrifarinha@gmail.com</a></li>
             <li>📞 <a href="tel:+351961071885">(+351) 961 071 885</a></li>
             <li>🔗 <a href="https://linkedin.com/in/joaorodrigofarinha" target="_blank" rel="noopener">linkedin.com/in/joaorodrigofarinha</a></li>
           </ul>
         </div>
         <aside class="hero-card" aria-label="Quick facts">
-          <div class="card-row">
-            <span class="card-label">Now</span>
-            <span class="card-value">AI Product Builder @ Oktogon Labs</span>
-          </div>
-          <div class="card-row">
-            <span class="card-label">Also</span>
-            <span class="card-value">Product Manager @ Surf Clube da Madeira</span>
-          </div>
-          <div class="card-row">
-            <span class="card-label">Education</span>
-            <span class="card-value">MSc Business Sciences · ISEG</span>
-          </div>
-          <div class="card-row">
-            <span class="card-label">Stack</span>
-            <span class="card-value">Cursor · Gemini · Replit · Looker Studio · AppSheet</span>
-          </div>
-          <div class="card-row">
-            <span class="card-label">Langs</span>
-            <span class="card-value">PT (Native) · EN (Fluent) · ES (Basic)</span>
-          </div>
+          <div class="card-row"><span class="card-label" data-i18n="card.now">Now</span><span class="card-value" data-i18n="card.nowVal">AI Product Builder @ Oktogon Labs</span></div>
+          <div class="card-row"><span class="card-label" data-i18n="card.also">Also</span><span class="card-value" data-i18n="card.alsoVal" data-i18n-html>Product Manager @ <a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a></span></div>
+          <div class="card-row"><span class="card-label" data-i18n="card.education">Education</span><span class="card-value" data-i18n="card.educationVal">MSc Business Sciences · ISEG</span></div>
+          <div class="card-row"><span class="card-label" data-i18n="card.stack">Stack</span><span class="card-value">Cursor · Claude Code · Codex · Gemini · Replit · Looker Studio · AppSheet</span></div>
+          <div class="card-row"><span class="card-label" data-i18n="card.langs">Langs</span><span class="card-value" data-i18n="card.langsVal">PT (Native) · EN (Fluent) · ES (Basic)</span></div>
         </aside>
       </div>
     </section>
 
     <section id="about" class="section">
-      <div class="section-head">
-        <span class="kicker">01 — Profile</span>
-        <h2>About</h2>
-      </div>
-      <p class="prose">
-        Entrepreneurial professional blending technology and business. I design and ship AI-powered products at
-        <strong>Oktogon Labs</strong> while leading digital strategy at <strong>Surf Clube da Madeira</strong>.
-        My background bridges sports management, business sciences and modern AI-assisted development —
-        I enjoy turning operational chaos into clear, automated systems that move the needle.
-      </p>
+      <div class="section-head"><span class="kicker" data-i18n="about.kicker">01 — Profile</span><h2 data-i18n="about.title">About</h2></div>
+      <p class="prose" data-i18n="about.body" data-i18n-html>Entrepreneurial professional blending technology and business. I design and ship AI-powered products at <strong>Oktogon Labs</strong> while leading digital strategy at <strong><a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a></strong>. My background bridges sports management, business sciences and modern AI-assisted development — I enjoy turning operational chaos into clear, automated systems that move the needle.</p>
     </section>
 
     <section id="experience" class="section">
-      <div class="section-head">
-        <span class="kicker">02 — Experience</span>
-        <h2>Where I've been working</h2>
-      </div>
-
+      <div class="section-head"><span class="kicker" data-i18n="exp.kicker">02 — Experience</span><h2 data-i18n="exp.title">Where I've been working</h2></div>
       <ol class="timeline">
         <li class="t-item">
           <div class="t-marker" aria-hidden="true"></div>
           <div class="t-body">
             <header class="t-header">
               <div>
-                <h3>AI Product Builder <span class="badge badge-live">Current</span></h3>
-                <p class="t-org">Oktogon Labs · Lisboa, Portugal · Hybrid · Part-time</p>
+                <h3 data-i18n="exp.j1.title" data-i18n-html>AI Product Builder <span class="badge badge-live" data-i18n="badge.current">Current</span></h3>
+                <p class="t-org">Oktogon Labs · <span data-i18n="exp.j1.org">Lisboa, Portugal · Hybrid · Part-time</span></p>
               </div>
-              <span class="t-date">Jan 2026 – Present</span>
+              <span class="t-date" data-i18n="exp.j1.date">Jan 2026 – Present</span>
             </header>
-            <p class="t-sub">1-year contract · AI &amp; GTM</p>
+            <p class="t-sub" data-i18n="exp.j1.sub">1-year contract · AI &amp; GTM</p>
             <ul>
-              <li>Design and ship internal tools and AI-powered workflows that accelerate go-to-market across sales, marketing and product.</li>
-              <li>Support external AI consulting &amp; delivery — scoping solutions, building client-facing automations, dashboards and custom systems.</li>
-              <li>Rapidly prototype micro-apps in the Oktogon Product Studio using AI-assisted dev (Cursor, Gemini, Replit).</li>
-              <li>Analyse performance data to drive GTM decisions; embed new AI tech into core products and client solutions.</li>
+              <li data-i18n="exp.j1.b1">Design and ship internal tools and AI-powered workflows that accelerate go-to-market across sales, marketing and product.</li>
+              <li data-i18n="exp.j1.b2">Support external AI consulting &amp; delivery — scoping solutions, building client-facing automations, dashboards and custom systems.</li>
+              <li data-i18n="exp.j1.b3">Rapidly prototype micro-apps in the Oktogon Product Studio using AI-assisted dev (Cursor, Gemini, Replit).</li>
+              <li data-i18n="exp.j1.b4">Analyse performance data to drive GTM decisions; embed new AI tech into core products and client solutions.</li>
             </ul>
           </div>
         </li>
-
         <li class="t-item">
           <div class="t-marker" aria-hidden="true"></div>
           <div class="t-body">
             <header class="t-header">
               <div>
-                <h3>Digital Operations Engineer (Junior)</h3>
-                <p class="t-org">Oktogon Labs · Lisboa, Portugal</p>
+                <h3 data-i18n="exp.j2.title">Digital Operations Engineer (Junior)</h3>
+                <p class="t-org">Oktogon Labs · <span data-i18n="exp.j2.org">Lisboa, Portugal</span></p>
               </div>
-              <span class="t-date">Sep – Dec 2025</span>
+              <span class="t-date" data-i18n="exp.j2.date">Sep – Dec 2025</span>
             </header>
-            <p class="t-sub">4 months</p>
+            <p class="t-sub" data-i18n="exp.j2.sub">4 months</p>
             <ul>
-              <li>Engineered and optimised GTM operations via tooling and automated data-driven workflows.</li>
-              <li>Implemented client-facing automations, dashboards and systems for AI consulting projects.</li>
-              <li>Prototyped micro-apps and analysed performance data to inform GTM strategy.</li>
+              <li data-i18n="exp.j2.b1">Engineered and optimised GTM operations via tooling and automated data-driven workflows.</li>
+              <li data-i18n="exp.j2.b2">Implemented client-facing automations, dashboards and systems for AI consulting projects.</li>
+              <li data-i18n="exp.j2.b3">Prototyped micro-apps and analysed performance data to inform GTM strategy.</li>
             </ul>
           </div>
         </li>
-
         <li class="t-item">
           <div class="t-marker" aria-hidden="true"></div>
           <div class="t-body">
             <header class="t-header">
               <div>
-                <h3>Product Manager <span class="badge badge-live">Current</span></h3>
-                <p class="t-org">Surf Clube da Madeira · Madeira, Portugal</p>
+                <h3 data-i18n="exp.j3.title" data-i18n-html>Product Manager <span class="badge badge-live" data-i18n="badge.current">Current</span></h3>
+                <p class="t-org"><a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a> · <span data-i18n="exp.j3.org">Madeira, Portugal</span></p>
               </div>
-              <span class="t-date">Jul 2023 – Present</span>
+              <span class="t-date" data-i18n="exp.j3.date">Jul 2023 – Present</span>
             </header>
             <ul>
-              <li>Lead product strategy and the digital roadmap for the club's operations and online presence.</li>
-              <li>Developed and implemented a custom ERP system to streamline operations and enable data-driven decisions.</li>
-              <li>Secured external partnerships, managed social projects, and applied for EU funding.</li>
-              <li>Manage website, customer support, scheduling and overall digital content.</li>
+              <li data-i18n="exp.j3.b1">Lead product strategy and the digital roadmap for the club's operations and online presence.</li>
+              <li data-i18n="exp.j3.b2">Developed and implemented a custom ERP system to streamline operations and enable data-driven decisions.</li>
+              <li data-i18n="exp.j3.b3">Secured external partnerships, managed social projects, and applied for EU funding.</li>
+              <li data-i18n="exp.j3.b4">Manage website, customer support, scheduling and overall digital content.</li>
             </ul>
           </div>
         </li>
-
         <li class="t-item">
           <div class="t-marker" aria-hidden="true"></div>
           <div class="t-body">
             <header class="t-header">
               <div>
-                <h3>Management Trainee</h3>
-                <p class="t-org">Surf Association — Autonomous Region of Madeira · Funchal</p>
+                <h3 data-i18n="exp.j4.title">Management Trainee</h3>
+                <p class="t-org" data-i18n="exp.j4.org">Surf Association — Autonomous Region of Madeira · Funchal</p>
               </div>
-              <span class="t-date">Nov 2021 – Oct 2022</span>
+              <span class="t-date" data-i18n="exp.j4.date">Nov 2021 – Oct 2022</span>
             </header>
             <ul>
-              <li>Built and managed WordPress website, social channels and event logistics.</li>
-              <li>Handled administrative management and digital communications.</li>
+              <li data-i18n="exp.j4.b1">Built and managed WordPress website, social channels and event logistics.</li>
+              <li data-i18n="exp.j4.b2">Handled administrative management and digital communications.</li>
             </ul>
           </div>
         </li>
-
         <li class="t-item">
           <div class="t-marker" aria-hidden="true"></div>
           <div class="t-body">
             <header class="t-header">
               <div>
-                <h3>Intern — Department of Studies &amp; Projects</h3>
-                <p class="t-org">Portuguese Olympic Committee (COP) · Lisbon</p>
+                <h3 data-i18n="exp.j5.title">Intern — Department of Studies &amp; Projects</h3>
+                <p class="t-org" data-i18n="exp.j5.org">Portuguese Olympic Committee (COP) · Lisbon</p>
               </div>
-              <span class="t-date">Feb – Jun 2021</span>
+              <span class="t-date" data-i18n="exp.j5.date">Feb – Jun 2021</span>
             </header>
             <ul>
-              <li>Elaborated a Strategic Plan proposal for the Olympic Education Programme.</li>
-              <li>Formulated a sponsorship proposal for the "Sports Science Awards" event.</li>
+              <li data-i18n="exp.j5.b1">Elaborated a Strategic Plan proposal for the Olympic Education Programme.</li>
+              <li data-i18n="exp.j5.b2">Formulated a sponsorship proposal for the "Sports Science Awards" event.</li>
             </ul>
           </div>
         </li>
@@ -218,49 +190,23 @@
     </section>
 
     <section id="skills" class="section">
-      <div class="section-head">
-        <span class="kicker">03 — Toolbox</span>
-        <h2>Skills &amp; tools</h2>
-      </div>
+      <div class="section-head"><span class="kicker" data-i18n="skills.kicker">03 — Toolbox</span><h2 data-i18n="skills.title">Skills &amp; tools</h2></div>
       <div class="skills-grid">
-        <article class="skill-card">
-          <h3>AI &amp; Dev</h3>
-          <ul class="chips">
-            <li>Cursor</li><li>Gemini</li><li>Replit</li><li>AI Workflows</li>
-          </ul>
-        </article>
-        <article class="skill-card">
-          <h3>Data</h3>
-          <ul class="chips">
-            <li>Looker Studio</li><li>Google Sheets</li><li>Excel</li><li>AppSheet</li>
-          </ul>
-        </article>
-        <article class="skill-card">
-          <h3>Web</h3>
-          <ul class="chips">
-            <li>WordPress</li><li>Wix</li><li>Adobe Express</li>
-          </ul>
-        </article>
-        <article class="skill-card">
-          <h3>Business</h3>
-          <ul class="chips">
-            <li>GTM Ops</li><li>EU Funding</li><li>ERP Systems</li><li>DePIN</li>
-          </ul>
-        </article>
+        <article class="skill-card"><h3 data-i18n="skills.ai">AI &amp; Dev</h3><ul class="chips"><li>Cursor</li><li>Claude Code</li><li>Codex</li><li>Gemini</li><li>Replit</li><li data-i18n="skills.aiWorkflows">AI Workflows</li></ul></article>
+        <article class="skill-card"><h3 data-i18n="skills.data">Data</h3><ul class="chips"><li>Looker Studio</li><li>Google Sheets</li><li>Excel</li><li>AppSheet</li></ul></article>
+        <article class="skill-card"><h3 data-i18n="skills.web">Web</h3><ul class="chips"><li>WordPress</li><li>Wix</li><li>Adobe Express</li></ul></article>
+        <article class="skill-card"><h3 data-i18n="skills.business">Business</h3><ul class="chips"><li>GTM Ops</li><li data-i18n="skills.euFunding">EU Funding</li><li data-i18n="skills.erp">ERP Systems</li><li>DePIN</li></ul></article>
       </div>
     </section>
 
     <section id="education" class="section two-col">
       <div>
-        <div class="section-head">
-          <span class="kicker">04 — Education</span>
-          <h2>Education</h2>
-        </div>
+        <div class="section-head"><span class="kicker" data-i18n="edu.kicker">04 — Education</span><h2 data-i18n="edu.title">Education</h2></div>
         <ul class="plain edu-list">
           <li>
             <img class="edu-logo" src="assets/iseg.png" alt="ISEG" loading="lazy" />
             <div class="edu-text">
-              <strong>MSc Business Sciences</strong>
+              <strong data-i18n="edu.msc">MSc Business Sciences</strong>
               <span class="edu-org">ISEG — Lisbon School of Economics &amp; Management</span>
             </div>
             <span class="muted">2023 – 2025</span>
@@ -268,7 +214,7 @@
           <li>
             <img class="edu-logo" src="assets/esdrm.png" alt="ESDRM" loading="lazy" />
             <div class="edu-text">
-              <strong>BSc Sports Management</strong>
+              <strong data-i18n="edu.bsc">BSc Sports Management</strong>
               <span class="edu-org">ESDRM — Politécnico de Santarém, Rio Maior</span>
             </div>
             <span class="muted">2018 – 2021</span>
@@ -276,14 +222,11 @@
         </ul>
       </div>
       <div>
-        <div class="section-head">
-          <span class="kicker">05 — Certifications</span>
-          <h2>Certifications</h2>
-        </div>
+        <div class="section-head"><span class="kicker" data-i18n="cert.kicker">05 — Certifications</span><h2 data-i18n="cert.title">Certifications</h2></div>
         <ul class="plain">
-          <li><strong>Google Digital Marketing &amp; E-commerce</strong> — Coursera <span class="muted">2023</span></li>
-          <li><strong>Technical Director</strong> — IPDJ Portugal <span class="muted">2021</span></li>
-          <li><strong>Lezíria Startup Winner</strong> — Innovation in Sports <span class="muted">2021</span></li>
+          <li><strong data-i18n="cert.google">Google Digital Marketing &amp; E-commerce</strong> — Coursera <span class="muted">2023</span></li>
+          <li><strong data-i18n="cert.td">Technical Director</strong> — IPDJ Portugal <span class="muted">2021</span></li>
+          <li><strong data-i18n="cert.startup">Lezíria Startup Winner</strong> — <span data-i18n="cert.startupSub">Innovation in Sports</span> <span class="muted">2021</span></li>
         </ul>
       </div>
     </section>
@@ -291,27 +234,27 @@
     <section id="contact" class="section contact">
       <div class="contact-card">
         <div>
-          <span class="kicker">06 — Let's talk</span>
-          <h2>Hiring or collaborating?</h2>
-          <p class="prose">I'm open to roles and projects at the intersection of AI products, GTM operations and business strategy. The fastest way to reach me is by email.</p>
+          <span class="kicker" data-i18n="contact.kicker">06 — Let's talk</span>
+          <h2 data-i18n="contact.title">Hiring or collaborating?</h2>
+          <p class="prose" data-i18n="contact.body">I'm open to roles and projects at the intersection of AI products, GTM operations and business strategy. The fastest way to reach me is by email.</p>
         </div>
         <div class="contact-actions">
-          <a class="btn btn-primary lg" href="mailto:rodrifarinha@gmail.com">Email me</a>
-          <a class="btn btn-ghost lg" href="assets/joao-farinha-cv.pdf" download="Joao-Farinha-CV.pdf">Download CV</a>
+          <a class="btn btn-primary lg" href="mailto:rodrifarinha@gmail.com" data-i18n="contact.email">Email me</a>
+          <a class="btn btn-ghost lg" href="assets/joao-farinha-cv.pdf" download="Joao-Farinha-CV.pdf" data-i18n="contact.download">Download CV</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> João Farinha · Built with care in Lisbon.</p>
+    <p>© <span id="year"></span> João Farinha · <span data-i18n="footer.tag">Built with care in Lisbon.</span></p>
     <p><a href="https://linkedin.com/in/joaorodrigofarinha" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:rodrifarinha@gmail.com">Email</a></p>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // theme toggle
+    // ---------- THEME TOGGLE ----------
     (function () {
       const root = document.documentElement;
       const btn = document.getElementById('theme-toggle');
@@ -321,14 +264,175 @@
         if (t === 'light' || t === 'dark') return t;
         return mq.matches ? 'dark' : 'light';
       }
-      function setTheme(t) {
-        root.setAttribute('data-theme', t);
-        try { localStorage.setItem('theme', t); } catch (e) {}
-      }
-      btn.addEventListener('click', () => setTheme(currentTheme() === 'dark' ? 'light' : 'dark'));
+      btn.addEventListener('click', () => {
+        const next = currentTheme() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
     })();
 
-    // smooth in-page nav
+    // ---------- LANGUAGE TOGGLE ----------
+    const translations = {
+      en: {
+        'skip': 'Skip to content',
+        'nav.about': 'About', 'nav.experience': 'Experience', 'nav.skills': 'Skills',
+        'nav.education': 'Education', 'nav.contact': 'Contact', 'nav.download': 'Download CV',
+        'hero.eyebrow': 'Available for selected opportunities',
+        'hero.greeting': "Hi, I'm",
+        'hero.tagline': 'AI Product Builder · Digital Operations · Sports Management',
+        'hero.lede': 'Building AI-powered systems that make teams faster and smarter. Currently shipping internal tools and GTM automations at <strong>Oktogon Labs</strong> while leading product strategy at <strong><a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a></strong>.',
+        'hero.downloadCv': 'Download CV (PDF)',
+        'hero.contact': 'Get in touch',
+        'hero.location': '📍 From Madeira Island, based in Lisbon, Portugal',
+        'card.now': 'Now', 'card.nowVal': 'AI Product Builder @ Oktogon Labs',
+        'card.also': 'Also', 'card.alsoVal': 'Product Manager @ <a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a>',
+        'card.education': 'Education', 'card.educationVal': 'MSc Business Sciences · ISEG',
+        'card.stack': 'Stack',
+        'card.langs': 'Langs', 'card.langsVal': 'PT (Native) · EN (Fluent) · ES (Basic)',
+        'about.kicker': '01 — Profile', 'about.title': 'About',
+        'about.body': 'Entrepreneurial professional blending technology and business. I design and ship AI-powered products at <strong>Oktogon Labs</strong> while leading digital strategy at <strong><a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a></strong>. My background bridges sports management, business sciences and modern AI-assisted development — I enjoy turning operational chaos into clear, automated systems that move the needle.',
+        'exp.kicker': '02 — Experience', 'exp.title': "Where I've been working",
+        'badge.current': 'Current',
+        'exp.j1.title': 'AI Product Builder <span class="badge badge-live">Current</span>',
+        'exp.j1.org': 'Lisboa, Portugal · Hybrid · Part-time',
+        'exp.j1.date': 'Jan 2026 – Present',
+        'exp.j1.sub': '1-year contract · AI & GTM',
+        'exp.j1.b1': 'Design and ship internal tools and AI-powered workflows that accelerate go-to-market across sales, marketing and product.',
+        'exp.j1.b2': 'Support external AI consulting & delivery — scoping solutions, building client-facing automations, dashboards and custom systems.',
+        'exp.j1.b3': 'Rapidly prototype micro-apps in the Oktogon Product Studio using AI-assisted dev (Cursor, Gemini, Replit).',
+        'exp.j1.b4': 'Analyse performance data to drive GTM decisions; embed new AI tech into core products and client solutions.',
+        'exp.j2.title': 'Digital Operations Engineer (Junior)',
+        'exp.j2.org': 'Lisboa, Portugal', 'exp.j2.date': 'Sep – Dec 2025', 'exp.j2.sub': '4 months',
+        'exp.j2.b1': 'Engineered and optimised GTM operations via tooling and automated data-driven workflows.',
+        'exp.j2.b2': 'Implemented client-facing automations, dashboards and systems for AI consulting projects.',
+        'exp.j2.b3': 'Prototyped micro-apps and analysed performance data to inform GTM strategy.',
+        'exp.j3.title': 'Product Manager <span class="badge badge-live">Current</span>',
+        'exp.j3.org': 'Madeira, Portugal', 'exp.j3.date': 'Jul 2023 – Present',
+        'exp.j3.b1': "Lead product strategy and the digital roadmap for the club's operations and online presence.",
+        'exp.j3.b2': 'Developed and implemented a custom ERP system to streamline operations and enable data-driven decisions.',
+        'exp.j3.b3': 'Secured external partnerships, managed social projects, and applied for EU funding.',
+        'exp.j3.b4': 'Manage website, customer support, scheduling and overall digital content.',
+        'exp.j4.title': 'Management Trainee',
+        'exp.j4.org': 'Surf Association — Autonomous Region of Madeira · Funchal',
+        'exp.j4.date': 'Nov 2021 – Oct 2022',
+        'exp.j4.b1': 'Built and managed WordPress website, social channels and event logistics.',
+        'exp.j4.b2': 'Handled administrative management and digital communications.',
+        'exp.j5.title': 'Intern — Department of Studies & Projects',
+        'exp.j5.org': 'Portuguese Olympic Committee (COP) · Lisbon',
+        'exp.j5.date': 'Feb – Jun 2021',
+        'exp.j5.b1': 'Elaborated a Strategic Plan proposal for the Olympic Education Programme.',
+        'exp.j5.b2': 'Formulated a sponsorship proposal for the "Sports Science Awards" event.',
+        'skills.kicker': '03 — Toolbox', 'skills.title': 'Skills & tools',
+        'skills.ai': 'AI & Dev', 'skills.aiWorkflows': 'AI Workflows',
+        'skills.data': 'Data', 'skills.web': 'Web', 'skills.business': 'Business',
+        'skills.euFunding': 'EU Funding', 'skills.erp': 'ERP Systems',
+        'edu.kicker': '04 — Education', 'edu.title': 'Education',
+        'edu.msc': 'MSc Business Sciences', 'edu.bsc': 'BSc Sports Management',
+        'cert.kicker': '05 — Certifications', 'cert.title': 'Certifications',
+        'cert.google': 'Google Digital Marketing & E-commerce',
+        'cert.td': 'Technical Director',
+        'cert.startup': 'Lezíria Startup Winner', 'cert.startupSub': 'Innovation in Sports',
+        'contact.kicker': "06 — Let's talk", 'contact.title': 'Hiring or collaborating?',
+        'contact.body': "I'm open to roles and projects at the intersection of AI products, GTM operations and business strategy. The fastest way to reach me is by email.",
+        'contact.email': 'Email me', 'contact.download': 'Download CV',
+        'footer.tag': 'Built with care in Lisbon.'
+      },
+      pt: {
+        'skip': 'Saltar para o conteúdo',
+        'nav.about': 'Sobre', 'nav.experience': 'Experiência', 'nav.skills': 'Competências',
+        'nav.education': 'Formação', 'nav.contact': 'Contacto', 'nav.download': 'Descarregar CV',
+        'hero.eyebrow': 'Disponível para oportunidades selecionadas',
+        'hero.greeting': 'Olá, sou o',
+        'hero.tagline': 'Construtor de Produtos IA · Operações Digitais · Gestão Desportiva',
+        'hero.lede': 'Construo sistemas com IA que tornam as equipas mais rápidas e inteligentes. Atualmente a desenvolver ferramentas internas e automações de GTM na <strong>Oktogon Labs</strong> e a liderar a estratégia de produto no <strong><a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a></strong>.',
+        'hero.downloadCv': 'Descarregar CV (PDF)',
+        'hero.contact': 'Fala comigo',
+        'hero.location': '📍 Da Ilha da Madeira, atualmente em Lisboa, Portugal',
+        'card.now': 'Atual', 'card.nowVal': 'AI Product Builder @ Oktogon Labs',
+        'card.also': 'Também', 'card.alsoVal': 'Product Manager @ <a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a>',
+        'card.education': 'Formação', 'card.educationVal': 'Mestrado em Ciências Empresariais · ISEG',
+        'card.stack': 'Tecnologias',
+        'card.langs': 'Idiomas', 'card.langsVal': 'PT (Nativo) · EN (Fluente) · ES (Básico)',
+        'about.kicker': '01 — Perfil', 'about.title': 'Sobre mim',
+        'about.body': 'Profissional com perfil empreendedor, a unir tecnologia e negócio. Concebo e lanço produtos de IA na <strong>Oktogon Labs</strong> enquanto lidero a estratégia digital no <strong><a href="https://www.surfingmadeira.com/" target="_blank" rel="noopener">Surf Clube da Madeira</a></strong>. O meu percurso cruza gestão desportiva, ciências empresariais e desenvolvimento assistido por IA — gosto de transformar caos operacional em sistemas claros e automatizados que dão resultados.',
+        'exp.kicker': '02 — Experiência', 'exp.title': 'Onde tenho trabalhado',
+        'badge.current': 'Atual',
+        'exp.j1.title': 'AI Product Builder <span class="badge badge-live">Atual</span>',
+        'exp.j1.org': 'Lisboa, Portugal · Híbrido · Part-time',
+        'exp.j1.date': 'Jan 2026 – Presente',
+        'exp.j1.sub': 'Contrato de 1 ano · IA & GTM',
+        'exp.j1.b1': 'Concebo e lanço ferramentas internas e fluxos com IA que aceleram o go-to-market em vendas, marketing e produto.',
+        'exp.j1.b2': 'Apoio na consultoria e entrega de IA — desenho de soluções, automações para clientes, dashboards e sistemas à medida.',
+        'exp.j1.b3': 'Prototipagem rápida de micro-apps no Oktogon Product Studio com desenvolvimento assistido por IA (Cursor, Gemini, Replit).',
+        'exp.j1.b4': 'Análise de dados de performance para decisões de GTM; integração de novas tecnologias de IA nos produtos e soluções de clientes.',
+        'exp.j2.title': 'Engenheiro de Operações Digitais (Júnior)',
+        'exp.j2.org': 'Lisboa, Portugal', 'exp.j2.date': 'Set – Dez 2025', 'exp.j2.sub': '4 meses',
+        'exp.j2.b1': 'Concebi e otimizei operações de GTM através de ferramentas e fluxos automatizados orientados por dados.',
+        'exp.j2.b2': 'Implementei automações, dashboards e sistemas para projetos de consultoria de IA.',
+        'exp.j2.b3': 'Prototipei micro-apps e analisei dados de performance para informar a estratégia de GTM.',
+        'exp.j3.title': 'Product Manager <span class="badge badge-live">Atual</span>',
+        'exp.j3.org': 'Madeira, Portugal', 'exp.j3.date': 'Jul 2023 – Presente',
+        'exp.j3.b1': 'Lidero a estratégia de produto e o roadmap digital das operações e presença online do clube.',
+        'exp.j3.b2': 'Desenvolvi e implementei um ERP personalizado para simplificar operações e permitir decisões baseadas em dados.',
+        'exp.j3.b3': 'Garanti parcerias externas, geri projetos sociais e candidaturas a fundos europeus.',
+        'exp.j3.b4': 'Faço a gestão do website, apoio ao cliente, agendamentos e conteúdo digital.',
+        'exp.j4.title': 'Estagiário de Gestão',
+        'exp.j4.org': 'Associação de Surf — Região Autónoma da Madeira · Funchal',
+        'exp.j4.date': 'Nov 2021 – Out 2022',
+        'exp.j4.b1': 'Construí e geri o website em WordPress, os canais sociais e a logística de eventos.',
+        'exp.j4.b2': 'Tratei da gestão administrativa e das comunicações digitais.',
+        'exp.j5.title': 'Estagiário — Departamento de Estudos & Projetos',
+        'exp.j5.org': 'Comité Olímpico de Portugal (COP) · Lisboa',
+        'exp.j5.date': 'Fev – Jun 2021',
+        'exp.j5.b1': 'Elaborei uma proposta de Plano Estratégico para o Programa de Educação Olímpica.',
+        'exp.j5.b2': 'Formulei uma proposta de patrocínio para o evento "Sports Science Awards".',
+        'skills.kicker': '03 — Ferramentas', 'skills.title': 'Competências & ferramentas',
+        'skills.ai': 'IA & Dev', 'skills.aiWorkflows': 'Fluxos com IA',
+        'skills.data': 'Dados', 'skills.web': 'Web', 'skills.business': 'Negócio',
+        'skills.euFunding': 'Fundos Europeus', 'skills.erp': 'Sistemas ERP',
+        'edu.kicker': '04 — Formação', 'edu.title': 'Formação',
+        'edu.msc': 'Mestrado em Ciências Empresariais',
+        'edu.bsc': 'Licenciatura em Gestão do Desporto',
+        'cert.kicker': '05 — Certificações', 'cert.title': 'Certificações',
+        'cert.google': 'Google Digital Marketing & E-commerce',
+        'cert.td': 'Diretor Técnico',
+        'cert.startup': 'Vencedor Lezíria Startup', 'cert.startupSub': 'Inovação no Desporto',
+        'contact.kicker': '06 — Vamos falar', 'contact.title': 'A recrutar ou a colaborar?',
+        'contact.body': 'Estou aberto a funções e projetos no cruzamento entre produtos de IA, operações de GTM e estratégia de negócio. A forma mais rápida de me contactar é por email.',
+        'contact.email': 'Envia-me um email', 'contact.download': 'Descarregar CV',
+        'footer.tag': 'Feito com carinho em Lisboa.'
+      }
+    };
+
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('lang-toggle');
+      const label = document.getElementById('lang-label');
+      function applyLang(lang) {
+        const dict = translations[lang] || translations.en;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (!(key in dict)) return;
+          if (el.hasAttribute('data-i18n-html')) {
+            el.innerHTML = dict[key];
+          } else {
+            el.textContent = dict[key];
+          }
+        });
+        root.setAttribute('lang', lang);
+        label.textContent = lang.toUpperCase();
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+      }
+      let saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      applyLang(saved === 'pt' ? 'pt' : 'en');
+      btn.addEventListener('click', () => {
+        const next = (root.getAttribute('lang') === 'pt') ? 'en' : 'pt';
+        applyLang(next);
+      });
+    })();
+
+    // ---------- SMOOTH NAV ----------
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const id = a.getAttribute('href');
