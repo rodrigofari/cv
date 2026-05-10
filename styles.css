@@ -228,10 +228,10 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
   font-size: clamp(28px, 3.5vw, 38px);
   letter-spacing: -.02em; margin: 0; font-weight: 700;
 }
-.prose { font-size: 16px; max-width: 70ch; color: var(--text); text-align: justify; hyphens: auto; }
+.prose { font-size: 16px; max-width: 70ch; color: var(--text); text-align: justify; text-align-last: left; hyphens: auto; }
 .prose strong { color: var(--text); }
-.lede { text-align: justify; hyphens: auto; }
-.t-body li { text-align: justify; hyphens: auto; }
+.lede { text-align: justify; text-align-last: left; hyphens: auto; }
+.t-body ul li { text-align: justify; text-align-last: left; hyphens: auto; }
 
 /* Content links — make them clearly clickable */
 .prose a,
@@ -255,6 +255,16 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
 .meta a:hover {
   color: var(--primary);
   text-decoration-color: var(--primary);
+}
+
+/* Append 🔗 to Oktogon Labs and Surf Clube da Madeira links */
+a[href*="oktogon.io"]::after,
+a[href*="surfingmadeira.com"]::after {
+  content: " 🔗";
+  font-size: 0.82em;
+  margin-left: 2px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 /* TIMELINE */
