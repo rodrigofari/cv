@@ -308,6 +308,29 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
   font-size: 15px;
 }
 .plain li:last-child { border-bottom: 0; }
+
+/* EDUCATION with logos */
+.edu-list li {
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+.edu-logo {
+  width: 56px; height: 56px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  flex-shrink: 0;
+}
+.edu-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.edu-text strong { font-size: 15px; }
+.edu-org { color: var(--muted); font-size: 13px; }
+@media (max-width: 480px) {
+  .edu-list li { flex-wrap: wrap; }
+  .edu-list li .muted { width: 100%; padding-left: 72px; }
+}
 .muted { color: var(--muted); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; }
 
 /* CONTACT */
