@@ -134,7 +134,7 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
 .avatar {
   width: 96px; height: 96px;
   border-radius: 50%;
-  object-fit: cover; object-position: center 25%;
+  object-fit: cover; object-position: center 20%;
   border: 3px solid var(--surface);
   box-shadow:
     0 0 0 2px color-mix(in srgb, var(--primary) 60%, transparent),
